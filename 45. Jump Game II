@@ -1,0 +1,24 @@
+45. Jump Game II
+Given an array of non-negative integers nums, you are initially positioned at the first index of the array.
+
+Each element in the array represents your maximum jump length at that position.
+
+Your goal is to reach the last index in the minimum number of jumps.
+
+You can assume that you can always reach the last index.
+
+Solution:
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        
+        length = len(nums)
+        jumps, curEnd, curFarthest = 0,  0,   0
+        for i in range(0, length-1):
+            curFarthest = max(curFarthest, i + nums[i])
+            if i == curEnd:
+                jumps+=1
+                curEnd = curFarthest
+        return jumps
+            
+            
+           
